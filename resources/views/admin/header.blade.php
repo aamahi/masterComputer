@@ -24,6 +24,11 @@
                     <i class="fa fa-user"></i> Customar
                 </a>
             </li>
+            <li class="dropdown">
+                <a href="{{route('report')}}">
+                    <i class="fa fa-file"></i> Report
+                </a>
+            </li>
             @php
                 $totalDue =0;
                 foreach(\App\Model\Customar::all() as $customar){

@@ -73,8 +73,8 @@
                                 <th>{{$customar->customar_name}}, {{$customar->phone}}, {{$customar->address}}</th>
 {{--                                <th>{{$customar->phone}}</th>--}}
 {{--                                <th>{{$customar->address}}</th>--}}
-                                <th>{{$customar->due}}</th>
-                                <th>{{$customar->joma}}</th>
+                                <td>@if($customar->due){{$customar->due}}@else{{'0'}} @endif</td>
+                                <td>@if($customar->joma){{$customar->joma}}@else{{'0'}} @endif</td>
                                 <th>{{($customar->due)-($customar->joma)}}</th>
                                 <th>
                                     <a href="{{route('bakiHisab',$customar->id)}}" class="btn btn-md btn-success"> <i class="fa fa-eye"> </i> </a>

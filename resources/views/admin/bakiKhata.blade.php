@@ -82,8 +82,8 @@
                                     <th>{{$customar->customar_name}}</th>
                                     <th>{{$customar->phone}}</th>
                                     <th>{{$customar->address}}</th>
-                                    <th>{{$customar->due}}</th>
-                                    <th>{{$customar->joma}}</th>
+                                    <th>@if($customar->due){{$customar->due}}@else{{'0'}} @endif</th>
+                                    <th>@if($customar->joma){{$customar->joma}}@else{{'0'}} @endif</th>
                                     <th>{{($customar->due)-($customar->joma)}}</th>
                                     <th>
                                         <a href="{{route('bakiHisab',$customar->id)}}" class="btn btn-md btn-info"> <i class="fa fa-eye"> </i> </a>

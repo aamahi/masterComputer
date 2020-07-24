@@ -56,5 +56,25 @@ class BakikhataController extends Controller
         $hisabs = BakiKhata::with('user')->where('customar_id',$id)->latest()->get();
         return view('admin.hisabAll',compact('hisabs','customar_info'));
     }
+    public function report(){
+        $reports = BakiKhata::with('user','customar')->latest()->get();
+        return view('admin.report',compact('reports'));
+    }
+    public function deleteReport($id){
+       $report =  BakiKhata::find($id);
+        $customar_id =  $report->customar_id;
+        if($report->due){
+            Customar::where('id',$customar_id)->decrement('due',$report->due);
+        }
+        if($report->joma){
+            Customar::where('id',$customar_id)->decrement('joma',$report->joma);
+        }
+        $report->delete();
+        $notification = array(
+            'message' => "Delete Report",
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
+    }
 }
 

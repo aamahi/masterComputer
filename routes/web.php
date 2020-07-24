@@ -39,3 +39,5 @@ Route::get('/delete/custoamr/{id}','Admin\CustomarController@deleteCustomar')->n
 Route::get('/baki/khata','Admin\BakikhataController@bakiKhata')->name('bakiKhata');
 Route::post('/baki/khata','Admin\BakikhataController@addbakiKhata');
 Route::get('/baki/hisab/{id}','Admin\BakikhataController@bakiHisab')->name('bakiHisab');
+Route::get('/report','Admin\BakikhataController@report')->name('report');
+Route::get('/delete/report/{id}','Admin\BakikhataController@deleteReport')->name('deleteReport');

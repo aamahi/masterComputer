@@ -49,7 +49,7 @@
                                 <td>{{($hisab->user)->name}}</td>
                                 <td>{{$hisab->comment}}</td>
                                 <td>@if($hisab->due){{$hisab->due}}@else{{'0'}} @endif</td>
-                                    <td>@if($hisab->joma){{$hisab->joma}}@else{{'0'}} @endif</td>
+                                <td>@if($hisab->joma){{$hisab->joma}}@else{{'0'}} @endif</td>
                                 <td>{{($hisab->due)-($hisab->joma)}}</td>
 
                                     @php
