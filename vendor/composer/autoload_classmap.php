@@ -32,6 +32,7 @@ return array(
     'App\\Model\\BakiKhata' => $baseDir . '/app/Model/BakiKhata.php',
     'App\\Model\\Bkash' => $baseDir . '/app/Model/Bkash.php',
     'App\\Model\\Customar' => $baseDir . '/app/Model/Customar.php',
+    'App\\Model\\Flexiload' => $baseDir . '/app/Model/Flexiload.php',
     'App\\Model\\TotalJoma' => $baseDir . '/app/Model/TotalJoma.php',
     'App\\Model\\joma' => $baseDir . '/app/Model/joma.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

@@ -34,17 +34,6 @@
                     <i class="fa fa-file"></i> Report
                 </a>
             </li>
-            @php
-                $totalDue =0;
-                foreach(\App\Model\Customar::all() as $customar){
-                    $totalDue +=(($customar->due)-($customar->joma));
-                }
-            @endphp
-            <li class="dropdown">
-                <a href="#" class="text-dark font-weight-bold" >
-                    <i class="fa fa-dollar"></i> Total Due : {{$totalDue}} Taka
-                </a>
-            </li>
         </ul>
         <!--  notification end -->
     </div>

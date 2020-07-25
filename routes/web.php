@@ -20,6 +20,9 @@ Route::get('/home', function(){return redirect()->route('home');});
 //        Admin Route
 Route::get('/',function (){ return redirect()->route('home'); });
 Route::get('/admin','Admin\BkashController@bkash')->name('home');
+Route::get('/dashboard',function(){
+    return view('admin.index');
+});
 
 
 
@@ -45,3 +48,6 @@ Route::get('/delete/report/{id}','Admin\BakikhataController@deleteReport')->name
 Route::get('/joma','Admin\JomaController@index')->name('joma');
 Route::post('/joma','Admin\JomaController@addJoma');
 Route::get('/viewJoma/{id}','Admin\JomaController@viewJoma')->name('viewJoma');
+
+Route::get('/flexiload','Admin\JomaController@flexiload')->name('flexiload');
+Route::post('/flexiload','Admin\JomaController@Addflexiload');

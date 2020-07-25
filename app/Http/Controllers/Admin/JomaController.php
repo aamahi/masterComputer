@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Customar;
+use App\Model\Flexiload;
 use App\Model\joma;
 use App\Model\TotalJoma;
 use Carbon\Carbon;
@@ -68,5 +69,26 @@ class JomaController extends Controller
         $customar_info = Customar::find($id);
        $jomas = joma::where('customar_id',$id)->orderBy('id','DESC')->get();
        return view('admin.viewJoma',compact('jomas','customar_info'));
+    }
+
+    public function flexiload(){
+        $flexiloads = Flexiload::all();
+        return view('admin.flexiload',compact('flexiloads'));
+    }
+    public function Addflexiload(Request $request){
+        $this->validate($request,[
+            'name'=>'required',
+            'phone'=>'required|size:11',
+        ]);
+        $data =[];
+        $data['name']=$request->name;
+        $data['phone']=$request->phone;
+        $data['created_at']=Carbon::now();
+        Flexiload::insert($data);
+        $notification = array(
+            'message' => "Flexiload Information Added ! ",
+            'alert-type' => 'info'
+        );
+        return redirect()->back()->with($notification);
     }
 }

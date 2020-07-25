@@ -48,6 +48,21 @@
         });
     });
 </script>
+{{--Flexiload Copy System--}}
+<script>
+    function selectElementContents(el) {
+        var body = document.body,
+            range, sel;
+        if (document.createRange && window.getSelection) {
+            range = document.createRange();
+            sel = window.getSelection();
+            sel.removeAllRanges();
+            range.selectNodeContents(el);
+            sel.addRange(range);
+        }
+        document.execCommand("Copy");
+    }
+</script>
 <script>
     function readURL(input) {
         if (input.files && input.files[0]) {
