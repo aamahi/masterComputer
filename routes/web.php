@@ -41,3 +41,7 @@ Route::post('/baki/khata','Admin\BakikhataController@addbakiKhata');
 Route::get('/baki/hisab/{id}','Admin\BakikhataController@bakiHisab')->name('bakiHisab');
 Route::get('/report','Admin\BakikhataController@report')->name('report');
 Route::get('/delete/report/{id}','Admin\BakikhataController@deleteReport')->name('deleteReport');
+
+Route::get('/joma','Admin\JomaController@index')->name('joma');
+Route::post('/joma','Admin\JomaController@addJoma');
+Route::get('/viewJoma/{id}','Admin\JomaController@viewJoma')->name('viewJoma');

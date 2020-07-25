@@ -19,6 +19,11 @@
                     <i class="fa fa-edit"></i> Baki Kahta
                 </a>
             </li>
+            <li class="dropdown font-weight-bold">
+                <a href="{{route('joma')}}">
+                    <i class="fa fa-plus-square-o"></i> Joma
+                </a>
+            </li>
             <li class="dropdown">
                 <a href="{{route('customar')}}">
                     <i class="fa fa-user"></i> Customar
