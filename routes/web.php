@@ -51,3 +51,11 @@ Route::get('/viewJoma/{id}','Admin\JomaController@viewJoma')->name('viewJoma');
 
 Route::get('/flexiload','Admin\JomaController@flexiload')->name('flexiload');
 Route::post('/flexiload','Admin\JomaController@Addflexiload');
+
+
+//Product Info
+Route::get('/product','ProductController@product')->name('product');
+Route::post('/product','ProductController@AddProduct');
+Route::get('/delete/product/{id}','ProductController@deleteProduct')->name('deleteProduct');
+Route::get('/edit/product/{id}','ProductController@editProduct')->name('editProduct');
+Route::post('/edit/product/{id}','ProductController@updateProduct');

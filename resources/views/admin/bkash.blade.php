@@ -1,4 +1,7 @@
 @extends('index')
+@section('bkash')
+    class="btn btn-success"
+@endsection
 @section('content')
     <section id="main-content">
         <section class="wrapper">
@@ -20,41 +23,56 @@
                     <form class="form-horizontal tasi-form" method="post" action="{{route('bkash')}}">
                         @csrf
                         <div class="form-group row">
-                            <label class="col-lg-3 col-lg-3 control-label font-weight-bold" style="font-size:20px;"> Bkash Number : </label>
-                            <div class="col-lg-8">
-{{--                                <textarea id="product_details" cols="108" rows="3.5"  name="number">  product Details...--}}
-{{--                                </textarea>--}}
-{{--                                <textarea name="number" class="form-control-lg" style="font-size:75px; font-size:75px;height: 151px;width: 100%"></textarea>--}}
-                                <input type="text"  name="number" value="{{old('number')}}" class="form-control-lg" style="font-size:75px; font-size:75px;height: 151px;width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Bkash No:">
+                            <div class="row">
+                                <div class="col-lg-1"></div>
+                                <div class="col-lg-7">
+                                    <input type="number"  name="number" value="{{old('number')}}" class="form-control-lg" style="font-size:75px; font-size:75px;height: 180px;width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Bkash No:">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="number" name="amount" value="{{old('amount')}}"class="form-control-lg" style="font-size:20px; width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Enter Amount ">
+                                    <br/>
+                                    <br/>
+                                    <input type="number" name="recive" value="{{old('recive')}}" class="form-control-lg" style="font-size:20px; width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Cash Out ">
+                                    <br/>
+                                    <br/>
+                                    <input type="number" name="send" value="{{old('send')}}" class="form-control-lg" style="font-size:20px; width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Cash In">
+                                </div>
+                                <div class="col-lg-1"></div>
                             </div>
+{{--                            <label class="col-lg-3 col-lg-3 control-label font-weight-bold" style="font-size:20px;"> Bkash Number : </label>--}}
+
                         </div>
+{{--                        <div class="form-group row">--}}
+{{--                            <label class="col-lg-3 -lg-3 control-label font-weight-bold" style="font-size:20px;">Amount :</label>--}}
+{{--                            <div class="col-lg-3">--}}
+{{--                                <input type="number" name="amount" value="{{old('amount')}}"class="form-control-lg" style="font-size:20px; width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Enter Amount ">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="form-group row">--}}
+{{--                            <label class="col-lg-3 col-lg-3 control-label font-weight-bold" style="font-size:20px;">Cash out :</label>--}}
+{{--                            <div class="col-lg-3">--}}
+{{--                                <input type="number" name="recive" value="{{old('recive')}}" class="form-control-lg" style="font-size:20px; width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Receive Amount ">--}}
+{{--                            </div>--}}
+{{--                            <label class="col-lg-2 col-lg-2 control-label font-weight-bold" style="font-size:20px;">Cash In:</label>--}}
+{{--                            <div class="col-lg-3">--}}
+{{--                                <input type="number" name="send" value="{{old('send')}}" class="form-control-lg" style="font-size:20px; width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Send to ">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="form-group row">
-                            <label class="col-lg-3 -lg-3 control-label font-weight-bold" style="font-size:20px;">Amount :</label>
+                            <div class="col-lg-1"></div>
+{{--                            <label class="col-lg-3 col-lg-3 control-label font-weight-bold" style="font-size:20px;"> Comment : </label>--}}
+                            <div class="col-lg-7">
+                                <input type="text" name="comment" value="{{old('comment')}}" class="form-control-lg" style="font-size:20px; width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Customer Details..">
+                            </div>
                             <div class="col-lg-3">
-                                <input type="number" name="amount" value="{{old('amount')}}"class="form-control-lg" style="font-size:20px; width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Enter Amount ">
+                             <input type="submit" class="btn btn-success btn-lg" value="Submit">
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-lg-3 control-label font-weight-bold" style="font-size:20px;">Cash out :</label>
-                            <div class="col-lg-3">
-                                <input type="number" name="recive" value="{{old('recive')}}" class="form-control-lg" style="font-size:20px; width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Receive Amount ">
-                            </div>
-                            <label class="col-lg-2 col-lg-2 control-label font-weight-bold" style="font-size:20px;">Cash In:</label>
-                            <div class="col-lg-3">
-                                <input type="number" name="send" value="{{old('send')}}" class="form-control-lg" style="font-size:20px; width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Send to ">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-lg-3 control-label font-weight-bold" style="font-size:20px;"> Comment : </label>
-                            <div class="col-lg-8">
-                                <input type="text" name="comment" value="{{old('comment')}}" class="form-control-lg" style="font-size:20px; width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Enter Comment">
-                            </div>
+                            <div class="col-lg-1"></div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-lg-4 col-lg-4"></div>
                             <div class="col-lg-4">
-                                <input type="submit" class="btn btn-success btn-lg" value="Bkash Compleate">
                             </div>
                             <div class="col-lg-4 col-lg-4"></div>
                         </div>

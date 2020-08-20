@@ -1,4 +1,7 @@
 @extends('index')
+@section('report')
+    class="btn btn-success"
+@endsection
 @section('content')
     <section id="main-content">
         <section class="wrapper">

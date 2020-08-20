@@ -10,28 +10,33 @@
         <ul class="nav top-menu">
             <!-- settings start -->
             <li class="dropdown">
-                <a href="{{route('bkash')}}">
+                <a href="{{route('bkash')}}" @yield('bkash')>
                     <i class="fa fa-tumblr-square"></i> Bkash
                 </a>
             </li>
             <li class="dropdown">
-                <a href="{{route('bakiKhata')}}">
+                <a href="{{route('bakiKhata')}}"@yield('baki')>
                     <i class="fa fa-edit"></i> Baki Kahta
                 </a>
             </li>
             <li class="dropdown font-weight-bold">
-                <a href="{{route('joma')}}">
+                <a href="{{route('joma')}}" @yield('joma')>
                     <i class="fa fa-plus-square-o"></i> Joma
                 </a>
             </li>
             <li class="dropdown">
-                <a href="{{route('customar')}}">
+                <a href="{{route('customar')}}"@yield('customer')>
                     <i class="fa fa-user"></i> Customar
                 </a>
             </li>
             <li class="dropdown">
-                <a href="{{route('report')}}">
+                <a href="{{route('report')}}"@yield('report')>
                     <i class="fa fa-file"></i> Report
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="{{route('product')}}"@yield('product')>
+                    <i class="fa fa-shopping-cart"></i> Product
                 </a>
             </li>
         </ul>

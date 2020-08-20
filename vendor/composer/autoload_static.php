@@ -518,6 +518,7 @@ class ComposerStaticInitb862a610b3688bef47c8a15c31b1fedb
         'App\\Model\\Bkash' => __DIR__ . '/../..' . '/app/Model/Bkash.php',
         'App\\Model\\Customar' => __DIR__ . '/../..' . '/app/Model/Customar.php',
         'App\\Model\\Flexiload' => __DIR__ . '/../..' . '/app/Model/Flexiload.php',
+        'App\\Model\\Product' => __DIR__ . '/../..' . '/app/Model/Product.php',
         'App\\Model\\TotalJoma' => __DIR__ . '/../..' . '/app/Model/TotalJoma.php',
         'App\\Model\\joma' => __DIR__ . '/../..' . '/app/Model/joma.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

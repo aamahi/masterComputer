@@ -1,4 +1,5 @@
 @extends('index')
+
 @section('content')
     <section id="main-content">
         <section class="wrapper">
