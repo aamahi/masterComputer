@@ -33,7 +33,7 @@
                             <h1 class="text-dark font-weight-bold">
                                 @php
                                     $totalSale =0;
-                                    foreach(\App\Model\Sale::all() as $sale){
+                                    foreach(\App\Model\mcSale::all() as $sale){
                                         $totalSale +=$sale->amount;
                                     }
                                 @endphp
@@ -53,7 +53,7 @@
                                 @php
                                     $today = \Carbon\Carbon::now()->toDateString();
                                     $todaySale =0;
-                                    foreach(\App\Model\Sale::where('month',$today)->get() as $sale){
+                                    foreach(\App\Model\mcSale::where('month',$today)->get() as $sale){
                                         $todaySale +=$sale->amount;
                                     }
                                 @endphp
@@ -73,7 +73,7 @@
                                 @php
                                     $currentMonth = date('m');
                                     $monthlySale = 0;
-                                    $data = \App\Model\Sale::whereRaw('MONTH(created_at) = ?',[$currentMonth])->get();
+                                    $data = \App\Model\mcSale::whereRaw('MONTH(created_at) = ?',[$currentMonth])->get();
                                     foreach ($data as $sale){
                                         $monthlySale +=$sale->amount;
                                     }
@@ -86,8 +86,8 @@
                 </div>
             </div>
             <section class="card">
-                <header class="card-header text-center bg-success text-white font-weight-bold">
-                    Add Sale
+                <header class="card-header text-center bg-secondary text-white font-weight-bold">
+                    Add Sale in Master Computer
                 </header>
                 <div class="card-body">
                     @if($errors->any())
@@ -100,27 +100,27 @@
                             </div>
                         @endforeach
                     @endif
-                    <form class="form-horizontal tasi-form" method="post" action="{{route('home')}}">
+                    <form class="form-horizontal tasi-form" method="post" action="{{route('mcsale')}}">
                         @csrf
 
                         <div class="form-group row">
-                            <div class="col-md-3">
-                                <label class="control-label font-weight-bold" style="font-size:20px;"> Enter Amount: </label>
-                            </div>
                             <div class="col-lg-3">
                                 <input type="number" name="amount" value="{{old('amount')}}" class="form-control-lg" style="font-size:20px; width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Amount">
                             </div>
-                            <div class="col-lg-3">
-                                <input type="submit" class="btn btn-success btn-lg" value="Add to Sale">
+                            <div class="col-lg-4">
+                                <input type="text" name="description" value="{{old('description')}}" class="form-control-lg" style="font-size:20px; width: 100%;border: 0.5px solid #d0d0d0;" placeholder="Description">
                             </div>
-                            <div class="col-lg-3"></div>
+                            <div class="col-lg-3">
+                                <input type="submit" class="btn btn-success btn-lg" value="Add to Sale (MC)">
+                            </div>
+                            <div class="col-lg-2"></div>
                         </div>
                     </form>
                 </div>
             </section>
             <section class="card">
-                <header class="card-header bg-info text-center text-white font-weight-bold">
-                   Sales Report
+                <header class="card-header bg-warning text-center text-white font-weight-bold">
+                   Sales Report in Master Computer
                 </header>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -131,20 +131,18 @@
                                 <th>Date</th>
                                 <th>Amount</th>
                                 <th>User</th>
-                                <th>Action</th>
+                                <th>Description</th>
+{{--                                <th>Action</th>--}}
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($sales as $sale)
+                            @foreach($mcSales as $sale)
                                 <tr>
                                     <th>{{$sale->id}}</th>
                                     <th>{{$sale->created_at->format('d/m/y')}}</th>
                                     <th>{{$sale->amount}}</th>
                                     <th>{{($sale->user)->name}}</th>
-                                    <th>
-{{--                                        <a href="" class="btn btn-sm btn-info"> <i class="fa fa-edit"> </i> </a>--}}
-                                        <a href="{{route('deleteSale',$sale->id)}}" class="btn btn-sm btn-danger delete"> <i class="fa fa-trash-o"> </i> </a>
-                                    </th>
+                                    <th>{{$sale->description}}</th>
                                 </tr>
                             @endforeach
                         </table>

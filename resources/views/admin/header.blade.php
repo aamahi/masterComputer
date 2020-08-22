@@ -39,6 +39,11 @@
                     <i class="fa fa-shopping-cart"></i> Product
                 </a>
             </li>
+            <li class="dropdown">
+                <a href="{{route('mcsale')}}"@yield('mcsale')>
+                    <i class="fa fa-bar-chart-o"></i> MC Sale
+                </a>
+            </li>
         </ul>
         <!--  notification end -->
     </div>

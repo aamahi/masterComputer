@@ -19,11 +19,13 @@ Route::get('/home', function(){return redirect()->route('home');});
 
 //        Admin Route
 Route::get('/',function (){ return redirect()->route('home'); });
-Route::get('/admin','Admin\BkashController@bkash')->name('home');
-Route::get('/dashboard',function(){
-    return view('admin.index');
-});
+Route::get('/admin','HomeController@index')->name('home');
+Route::get('/dashboard','HomeController@index')->name('home');
+Route::post('/dashboard','HomeController@addSale');
+Route::get('/delete/sale/{id}','HomeController@deleteSale')->name('deleteSale');
 
+Route::get('/mc/sale','HomeController@mcSale')->name('mcsale');
+Route::post('/mc/sale','HomeController@addMcSale');
 
 
 //New Mastaser COmputer
